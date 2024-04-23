@@ -139,7 +139,7 @@ const likehandle = async function (id: number, bool: boolean) {
         <div style="display: flex; width: 39%; align-items: center">
           <div class="songpicdiv">
             <img
-              :src="item.al.picUrl"
+              :src="item.al.picUrl+'?param=60y60'"
               style="width: 60px; border-radius: 5px"
             />
           </div>

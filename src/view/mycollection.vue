@@ -15,7 +15,9 @@ const godetaillist = function(id:number){
   router.push({path:`/detaillist/${id}/ALBUM`})
 }
 const mvbool = ref(false)
-onMounted(()=>{
+onMounted(async ()=>{
+  await user.getmymv()
+  await user.getmyalbum()
   let timer = setInterval(function(){
     if(user.mymvs.length>0){
       mvbool.value = true
@@ -32,7 +34,7 @@ onMounted(()=>{
       <div @click="godetaillist(item.id)" class="album" v-for="item in user.myalbums">
         <img
           class="albumimg"
-          :src="item.picUrl"
+          :src="item.picUrl+'?param=200y200'"
         />
         <div class="albumtitle">
           <div class="albumname">
@@ -48,7 +50,7 @@ onMounted(()=>{
     <div v-show="activetabnum === 1" class="mvlist">
         <div v-if="mvbool" class="mv" v-for="item in user.mymvs">
             <div class="mvimgdiv">
-              <img class="mvimg" :src="item.coverUrl" >
+              <img class="mvimg" :src="item.coverUrl+'?param=200y200'" >
             </div>
             <div class="mvtext">
                 <div class="mvtitle">{{ item.title }}</div>

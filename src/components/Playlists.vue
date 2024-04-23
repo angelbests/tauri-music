@@ -54,7 +54,7 @@ const trackCount = computed(()=>{
         </div>
         <div style="width: 55%;display: flex;align-items: center;">
           <div class="playlistpicdiv">
-            <img :src="item.coverImgUrl" style="width: 60px; border-radius: 5px" />
+            <img :src="item.coverImgUrl+'?param=200y200'" style="width: 60px; border-radius: 5px" />
           </div>
           <div class="playlistnamediv">
             <router-link style="text-decoration: none;color: black;" :to="{path:`/detaillist/${item.id}/PLAYLIST`}">{{ item.name }}</router-link>

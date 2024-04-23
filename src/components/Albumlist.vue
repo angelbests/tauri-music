@@ -51,7 +51,7 @@ onMounted(()=>{
                 </div>
                 <div style="width: 55%;display: flex;align-items: center;">
                     <div class="albumpicdiv">
-                        <img :src="item.picUrl" style="width: 60px; border-radius: 5px" />
+                        <img :src="item.picUrl+'?param=200y200'" style="width: 60px; border-radius: 5px" />
                     </div>
                     <div class="albumname">
                         <router-link style="text-decoration: none;color: black;" :to="{path:`/detaillist/${item.id}/ALBUM`}">

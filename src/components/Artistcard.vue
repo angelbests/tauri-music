@@ -8,7 +8,7 @@ defineProps<{
 <template>
     <div class="artists">
         <div class="artist" v-for="item in artists">
-        <img :src="item.img1v1Url" class="img" />
+        <img :src="item.img1v1Url+'?param=200y200'" class="img" />
         <div style="width: 150px">
             <div class="name">
             {{ item.name }}

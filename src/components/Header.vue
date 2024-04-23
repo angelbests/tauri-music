@@ -3,6 +3,7 @@ import { appWindow } from "@tauri-apps/api/window";
 import { onMounted, onUnmounted, reactive, ref } from "vue";
 import { searchdefault, searchhotdetail, searchsuggest } from "../api";
 import { userStore } from "../stores";
+import { exit } from "@tauri-apps/api/process";
 // import PhoneLogin from "./PhoneLogin.vue";
 import QrLogin from "./QrLogin.vue";
 import { useRouter } from "vue-router";
@@ -31,8 +32,9 @@ onMounted(async () => {
     appWindow.minimize();
   });
 
-  document.getElementById("close")?.addEventListener("click", function () {
-    appWindow.close();
+  document.getElementById("close")?.addEventListener("click",async function () {
+    // appWindow.close();
+    await exit();
   });
 
   // console.log(user.cookie)
@@ -58,7 +60,7 @@ onMounted(async () => {
 });
 
 const loginchangebool = ref(false);
-const loginshowbool = ref(true);
+const loginshowbool = ref(false);
 const loginstatus = function (bool: boolean) {
   if (bool) {
     loginshowbool.value = false;
@@ -544,7 +546,7 @@ onUnmounted(() => {
   width: 100vw;
   height: calc(100vh - 70px);
   position: absolute;
-  z-index: 20;
+  z-index: 2000;
   display: flex;
   justify-content: center;
   padding-top: 10%;

@@ -86,10 +86,6 @@
         "minWidth": 1050,
         "height": 750,
         "minHeight": 750
-      },
-      {
-        "label": "node",
-        "visible": false
       }
     ]
   }

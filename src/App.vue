@@ -9,27 +9,27 @@ import { BaseDirectory,createDir } from '@tauri-apps/api/fs'
 import { appWindow } from '@tauri-apps/api/window'
 const playing = playingStore();
 const user = userStore()
-onMounted(() => {
-  
-  appWindow.setAlwaysOnTop(false)
-  createDir('skydeskmusic',{ dir:BaseDirectory.Audio,recursive:true }).then((res)=>{
-    console.log(res);
-  });
-  playing.initAudio();
-    if(user.uid && user.cookie){
-      user.getmyalbum()
-      user.getuserplaylist()
-      user.getlikeallfunction()
-      user.getmymv()
-    }
-
+onMounted(async () => {
   document.addEventListener("selectstart",function(e){
     e.preventDefault()
   })
 
-  // document.addEventListener("contextmenu",function(e){
-  //   e.preventDefault();
-  // })
+  document.addEventListener("contextmenu",function(e){
+    e.preventDefault();
+  })
+  
+  appWindow.setAlwaysOnTop(false)
+  await createDir('skydeskmusic',{ dir:BaseDirectory.Audio,recursive:true }).then((res)=>{
+    console.log(res);
+  });
+  playing.initAudio();
+    if(user.uid && user.cookie){
+      await user.getmymv()
+      await user.getmyalbum()
+      await user.getuserplaylist()
+      await user.getlikeallfunction()
+      
+    }
 }); 
 </script>
 

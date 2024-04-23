@@ -183,7 +183,7 @@ const goplaylist = function (id: number) {
             "
           >
             <img
-              :src="item.picUrl"
+              :src="item.picUrl+'?param=200y200'"
               style="width: 200px; height: 200px; border-radius: 10px"
             />
             <div
